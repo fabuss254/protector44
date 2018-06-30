@@ -46,7 +46,7 @@ bot.on("message", async function(message) {
         case "reset":
             if (message.author.id === "178131193768706048"){
                     message.channel.send("Etes vous sur?").then(msg => {
-                        msg.createReactionCollector(filter, { time: 5000 }).on('collect', (reaction, collector) => {
+                        msg.createReactionCollector((reaction, user) => reaction.emoji.name === '✅' && user.id === '178131193768706048', { time: 5000 }).on('collect', (reaction, collector) => {
                             var AllChannels = message.guild.channels
                             
                             message.guild.createChannel('Salons textuels', 'category', null, "Reinitialisation du serveur").then(cat => {
