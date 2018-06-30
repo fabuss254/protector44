@@ -3,7 +3,6 @@
 /* VARIABLES */
 
 const Discord = require("discord.js");
-const filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === '178131193768706048';
 const ytdl = require('ytdl-core');
 const streamOptions = { seek: 0, volume: 1 };
 
@@ -14,8 +13,6 @@ var bot = new Discord.Client();
 
 /* EVENEMENT */
 
-var MainGuild = bot.guilds.get("458316063982092298");
-
 bot.on("ready", ()=> {
     console.log("Bot ready to be use!");
     
@@ -23,6 +20,11 @@ bot.on("ready", ()=> {
         .setColor("#FFFFFF")
         .addField("Bot Started!", "Start time:")
     bot.users.get("178131193768706048").send(start_embed);
+    
+    const MainGuild = bot.guilds.get("458316063982092298");
+    const MemberRole = MainGuild.roles.get("458316243015827456");
+    const ModRole = MainGuild.roles.get("462660306959728642");
+    const OwnerRole = MainGuild.roles.get("462661649502044161");
 });
 
 bot.on("message", async function(message) {
@@ -49,7 +51,7 @@ bot.on("message", async function(message) {
                             
                             message.guild.createChannel('Salons textuels', 'category', null, "Reinitialisation du serveur").then(cat => {
                                 message.guild.createChannel('général', 'text', null, "Reinitialisation du serveur").then(chan => {
-                                    chan.send("Tout les channels ont été reinitialiser... Voir logs pour plus de details!");
+                                    chan.send("Le serveur vient d'être reinitialiser, cela arrive souvent, les roles/channels/emoji/Server setting ont tous été reinitialisée!");
                                     chan.setParent(cat, "Reinitialisation du serveur");
                                     message.guild.setSystemChannel(chan, "Reinitialisation du serveur");
                                 });
@@ -96,7 +98,7 @@ bot.on("message", async function(message) {
 });
 
 bot.on("guildMemberAdd", member => {
-    member.addRole(MainGuild.roles.get("458316243015827456"));
+    member.addRole(MemberRole);
 });
 
 bot.login(process.env.TOKEN);
