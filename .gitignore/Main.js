@@ -112,17 +112,18 @@ bot.on("guildUpdate", guild => {
     guild.setIcon("./wLBF7RUE.jpg");
     guild.setVerificationLevel(2);
     
+    /*
     guild.fetchAuditLogs({type: "GUILD_UPDATE", limit: 10}).then(audit => {
         var finished = 0;
         audit.entries.forEach(function(v,i){
             if (finished == 0){
                 if (v.executor.id != "462669402869989386"){
                     v.executor.send("Don't try to change the servers settings, this warning has been sent to your violation list, after 10 violations, you'll be **permanently banned!**")
-                    finished = 1;
                 };
             };
         });
     });
+    */
 });
 
 bot.on("guildBanRemove", (guild, user) => {
