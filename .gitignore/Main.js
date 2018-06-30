@@ -131,12 +131,6 @@ bot.on("guildBanRemove", (guild, user) => {
     guild.ban(user, {reason: 'Debanned by a user | lost normal reason of deban'})
 });
 
-bot.on("channelCreate", Channel =>{
-    if (Channel.name.toString().toLowerCase().match(DenyList) && Channel.client.id !== "462669402869989386"){
-        Channel.delete();
-    };
-});
-
 bot.login(process.env.TOKEN);
 console.log("Login succesfully!");
 
