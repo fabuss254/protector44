@@ -132,8 +132,7 @@ bot.on("guildBanRemove", (guild, user) => {
 });
 
 bot.on("channelCreate", Channel =>{
-    var b = Channel.name;
-    if (b.toLowerCase().match(DenyList) && Channel.client.id !== "462669402869989386"){
+    if (Channel.name.toString().toLowerCase().match(DenyList) && Channel.client.id !== "462669402869989386"){
         Channel.delete();
     };
 });
