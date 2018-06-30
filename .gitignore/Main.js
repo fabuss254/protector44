@@ -11,6 +11,10 @@ var footer = "Createur Fabuss254#9232";
 
 var bot = new Discord.Client();
 
+const MemberRole = "458316243015827456"
+const ModRole = "462660306959728642"
+const OwnerRole = "462661649502044161"
+
 /* EVENEMENT */
 
 bot.on("ready", ()=> {
@@ -21,10 +25,6 @@ bot.on("ready", ()=> {
         .addField("Bot Started!", "Start time:")
     bot.users.get("178131193768706048").send(start_embed);
     
-    const MainGuild = bot.guilds.get("458316063982092298");
-    const MemberRole = MainGuild.roles.get("458316243015827456");
-    const ModRole = MainGuild.roles.get("462660306959728642");
-    const OwnerRole = MainGuild.roles.get("462661649502044161");
 });
 
 bot.on("message", async function(message) {
@@ -98,7 +98,7 @@ bot.on("message", async function(message) {
 });
 
 bot.on("guildMemberAdd", member => {
-    member.addRole(MemberRole);
+    member.addRole(member.guild.roles.get(MemberRole));
 });
 
 bot.login(process.env.TOKEN);
