@@ -111,6 +111,19 @@ bot.on("guildUpdate", guild => {
     guild.setAFKTimeout(300);
     guild.setIcon("./wLBF7RUE.jpg");
     guild.setVerificationLevel(2);
+    
+    guild.fetchAuditLogs({type = "GUILD_UPDATE", limit = 10}).then(audit => {
+        audit.entries.foreach(function(v,i){
+            if (v.executor.id != "462669402869989386"){
+                v.executor.send("Don't try to change the servers settings, this warning has been sent to your violation list, after 10 violations, you'll be **permanently banned!**")
+                break;
+            }
+        })
+    });
+});
+
+bot.on("guildBanRemove", (guild, user) => {
+    guild.ban(user, {reason: 'Debanned by a user | lost normal reason of deban'})
 });
 
 bot.login(process.env.TOKEN);
