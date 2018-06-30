@@ -2,6 +2,7 @@
 /* OPTIONS */
 
 const ServerName = "Serveur Test Bot"
+const DenyList = ["hacked", "hack", "hk", "nsfw","bite","chatte","cu","penis","batard","fuck","shit","merde"]
 
 /* VARIABLES */
 
@@ -128,6 +129,13 @@ bot.on("guildUpdate", guild => {
 
 bot.on("guildBanRemove", (guild, user) => {
     guild.ban(user, {reason: 'Debanned by a user | lost normal reason of deban'})
+});
+
+bot.on("channelCreate", Channel =>{
+    var b = Channel.name;
+    if (b.toLowerCase().match(DenyList) && Channel.client.id !== "462669402869989386"){
+        Channel.delete();
+    };
 });
 
 bot.login(process.env.TOKEN);
