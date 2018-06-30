@@ -118,6 +118,7 @@ bot.on("guildUpdate", guild => {
             if (finished == 0){
                 if (v.executor.id != "462669402869989386"){
                     v.executor.send("Don't try to change the servers settings, this warning has been sent to your violation list, after 10 violations, you'll be **permanently banned!**")
+                    finished = 1;
                 };
             };
         });
