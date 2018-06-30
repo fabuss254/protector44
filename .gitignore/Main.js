@@ -1,4 +1,7 @@
 
+/* OPTIONS */
+
+const ServerName = "Serveur Test Bot"
 
 /* VARIABLES */
 
@@ -69,10 +72,11 @@ bot.on("message", async function(message) {
                               value.delete();
                             });
                             
-                            message.guild.setName("Serveur full admin");
+                            message.guild.setName(ServerName);
                             message.guild.setRegion("eu-central");
                             message.guild.setAFKTimeout(300);
                             message.guild.setIcon("./wLBF7RUE.jpg");
+                            message.guild.setVerificationLevel(2);
                             
                             var emojilist = message.guild.emojis
                             emojilist.forEach(function(value){
@@ -99,6 +103,14 @@ bot.on("message", async function(message) {
 
 bot.on("guildMemberAdd", member => {
     member.addRole(member.guild.roles.get(MemberRole));
+});
+
+bot.on("guildUpdate", guild => {
+    guild.setName(ServerName);
+    guild.setRegion("eu-central");
+    guild.setAFKTimeout(300);
+    guild.setIcon("./wLBF7RUE.jpg");
+    guild.setVerificationLevel(2);
 });
 
 bot.login(process.env.TOKEN);
