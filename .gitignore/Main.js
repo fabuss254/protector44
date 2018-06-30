@@ -33,6 +33,12 @@ bot.on("ready", ()=> {
 
 bot.on("message", async function(message) {
     if (message.author.equals(bot.user)) return;
+    if (message.mentions.everyone){
+        if (message.member.has.roles.has(MemberRole)){
+            message.member.send("Tu as été kick du server **TEST BOT** pour avoir **mentionnée @everyone**")
+            message.member.kick("Utilise la mention everyone!")
+        };
+    };
     var args = message.content.substring(prefix.length).split (" ");
     if (!message.content.startsWith(prefix)) return;
     switch (args[0].toLowerCase()) {
