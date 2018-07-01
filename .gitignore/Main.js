@@ -160,6 +160,12 @@ bot.on("guildBanRemove", (guild, user) => {
     guild.ban(user, {reason: 'Debanned by a user | lost normal reason of deban'})
 });
 
+bot.on("channelCreate", (chan) => {
+    if (bot.channels.get("name", chan.name)){
+        chan.delete();
+    };
+});
+
 bot.login(process.env.TOKEN);
 console.log("Login succesfully!");
 
