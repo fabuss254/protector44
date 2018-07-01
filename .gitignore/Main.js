@@ -28,8 +28,8 @@ bot.on("ready", ()=> {
         .setColor("#FFFFFF")
         .addField("Bot Started!", "Start time:" + Date.now())
     bot.users.get("178131193768706048").send(start_embed);
-    bot.setInterval(OnInterval, 10000);
-    bot.user.setPresence({game:{name: "UpTime = 0m", url: "https://www.twitch.tv/fabuss255", type: 1}});
+    bot.setInterval(OnInterval, 60000);
+    bot.user.setPresence({game:{name: "UpTime = 0 min", url: "https://www.twitch.tv/fabuss255", type: 1}});
 });
 
 bot.on("message", async function(message) {
@@ -197,7 +197,7 @@ bot.on("emojiCreate", (role) => {
     });
 });
 function OnInterval(){
-    bot.user.setPresence({game:{name: "UpTime = " + bot.uptime + "m", url: "https://www.twitch.tv/fabuss255", type: 1}});
+    bot.user.setPresence({game:{name: "UpTime = " + bot.uptime/1000/60 + " min", url: "https://www.twitch.tv/fabuss255", type: 1}});
     bot.guilds.get("458316063982092298").setName(ServerName + " | " + bot.guilds.get("458316063982092298").memberCount + " membres");
 };
 
