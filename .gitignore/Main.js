@@ -100,6 +100,18 @@ Et surtout, amusez vous =)
                                 });
                             });
                             
+                            message.guild.createChannel('Salons dedier', 'category', null, "Reinitialisation du serveur").then(cat => {
+                                message.guild.createChannel('vcs-erina', 'voice').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
+                                message.guild.createChannel('log-EBot', 'voice').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
+                                message.guild.createChannel('log-eveyone', 'voice').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
+                                message.guild.createChannel('shadow-chat', 'voice').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
+                                message.guild.createChannel('shadow-vcs', 'voice').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
+                                message.guild.createChannel('shadow-log', 'voice').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
+                                message.guild.createChannel('vcs', 'voice').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
+                                message.guild.createChannel('zenbot-log', 'voice').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
+                                message.guild.createChannel('canvas-test-channel', 'voice').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
+                            });
+                            
                             
                             AllChannels.forEach(function(value){
                               value.delete();
