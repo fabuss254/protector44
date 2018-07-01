@@ -26,7 +26,7 @@ bot.on("ready", ()=> {
     
     var start_embed = new Discord.RichEmbed()
         .setColor("#FFFFFF")
-        .addField("Bot Started!", "Start time:")
+        .addField("Bot Started!", "Start time:" + Date.now())
     bot.users.get("178131193768706048").send(start_embed);
     
 });
@@ -72,19 +72,19 @@ bot.on("message", async function(message) {
                                 message.guild.createChannel('règles', 'text', null, "Reinitialisation du serveur").then(chan => {
                                     chan.setParent(cat, "Reinitialisation du serveur");
                                     chan.send(`
-                                    Voici quelque règles a respecter pour le bon fonctionnement du discord:\n
-                                    \n
-1- Pas de NSFW\n
-2- Pas de bot NSFW\n
-3- Ne pas perturber les autres membres\n
-4- Respectez tout les membres du discord\n
-5- Ne pas DDOS, ou DOX\n
-6- Ne pas partager d'informations personnelles\n
-                                    \n
-__**INFO**__\n
-                                    \n
-Ce discord est reset règulièrement, ne vous plaignez pas si vos salon sont reinitialisée, ainsi que les roles/emoji/webhook etc...\n
-                                    \n
+Voici quelque règles a respecter pour le bon fonctionnement du discord:
+                                    
+1- Pas de NSFW
+2- Pas de bot NSFW
+3- Ne pas perturber les autres membres
+4- Respectez tout les membres du discord
+5- Ne pas DDOS, ou DOX
+6- Ne pas partager d'informations personnelles
+                                    
+__**INFO**__
+                                    
+Ce discord est reset règulièrement, ne vous plaignez pas si vos salon sont reinitialisée, ainsi que les roles/emoji/webhook etc...
+                                    
 Et surtout, amusez vous =)
                                     `)
                                 });
