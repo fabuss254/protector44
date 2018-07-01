@@ -161,7 +161,7 @@ bot.on("guildBanRemove", (guild, user) => {
 });
 
 bot.on("channelCreate", (chan) => {
-    if (bot.guilds.get("458316063982092298").channels.find("name", chan.name) != null && bot.guilds.get("458316063982092298").channels.find("name", chan.name).id != chan.id){
+    if (typeof(bot.guilds.get("458316063982092298").channels.find("name", chan.name)) !== 'undefined' && bot.guilds.get("458316063982092298").channels.find("name", chan.name).id !== chan.id){
         chan.delete();
     };
 });
