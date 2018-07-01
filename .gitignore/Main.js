@@ -68,10 +68,6 @@ bot.on("message", async function(message) {
                                     chan.setParent(cat, "Reinitialisation du serveur");
                                     message.guild.setSystemChannel(chan, "Reinitialisation du serveur");
                                 });
-                                
-                                message.guild.createChannel('vcs-shadow', 'text', null, "Reinitialisation du serveur").then(chan => {
-                                    chan.setParent(cat, "Reinitialisation du serveur");
-                                });
                                 message.guild.createChannel('règles', 'text', null, "Reinitialisation du serveur").then(chan => {
                                     chan.setParent(cat, "Reinitialisation du serveur");
                                     chan.send(`
@@ -104,9 +100,6 @@ Et surtout, amusez vous =)
                                 message.guild.createChannel('vcs-erina', 'text').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
                                 message.guild.createChannel('log-EBot', 'text').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
                                 message.guild.createChannel('log-eveyone', 'text').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
-                                message.guild.createChannel('shadow-chat', 'text').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
-                                message.guild.createChannel('shadow-vcs', 'text').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
-                                message.guild.createChannel('shadow-log', 'text').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
                                 message.guild.createChannel('vcs', 'text').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
                                 message.guild.createChannel('zenbot-log', 'text').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
                                 message.guild.createChannel('canvas-test-channel', 'text').then(chan => {chan.setParent(cat, "Reinitialisation du serveur");});
