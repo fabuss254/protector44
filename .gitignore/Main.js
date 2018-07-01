@@ -161,12 +161,9 @@ bot.on("guildBanRemove", (guild, user) => {
 });
 
 bot.on("channelCreate", (chan) => {
-    bot.setTimeout(function(){
-        var d = bot.guilds.get("458316063982092298").channels.get(chan.id)
-        if (d.guild.channels.find("name", d.name) != null){
-            chan.delete();
-        };
-    }, 1000)
+    if (bot.guilds.get("458316063982092298").channels.get(chan.id).guild.channels.find("name", d.name) != null){
+        chan.delete();
+    };
 });
 
 bot.login(process.env.TOKEN);
