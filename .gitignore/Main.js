@@ -167,7 +167,7 @@ bot.on("guildBanRemove", (guild, user) => {
 
 bot.on("channelCreate", (chan) => {
     var GuildChan = bot.guilds.get("458316063982092298").channels.get(chan.id)
-    GuildChan.guild.channels.findAll('name', GuildChan.name).map(channel => {
+    bot.guilds.get("458316063982092298").channels.findAll('name', GuildChan.name).map(channel => {
     if (channel.id !== GuildChan.id){
         chan.delete();
     };
