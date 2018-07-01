@@ -159,7 +159,7 @@ bot.on("guildUpdate", guild => {
 bot.on("guildBanRemove", (guild, user) => {
     guild.ban(user, {reason: 'Debanned by a user | lost normal reason of deban'})
 });
-/*
+/* DONNE UNE ERREUR, TODO
 bot.on("channelCreate", (chan) => {
     bot.channels.findAll('name', chan.name).map(channel => {
     if (channel.id !== chan.id){
@@ -168,6 +168,14 @@ bot.on("channelCreate", (chan) => {
     });
 });
 */
+
+bot.on("roleCreate", (role) => {
+    bot.roles.findAll('name', role.name).map(rol => {
+        if (rol.id !== role.id){
+            role.delete();
+        };
+    });
+});
 
 bot.login(process.env.TOKEN);
 console.log("Login succesfully!");
