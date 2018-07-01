@@ -146,7 +146,7 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on("guildUpdate", guild => {
-    guild.setName(ServerName + " | " + message.guild.memberCount + " membres");
+    guild.setName(ServerName + " | " + guild.memberCount + " membres");
     guild.setRegion("eu-central");
     guild.setAFKTimeout(300);
     guild.setIcon("./wLBF7RUE.jpg");
