@@ -65,6 +65,29 @@ bot.on("message", async function(message) {
                                     chan.setParent(cat, "Reinitialisation du serveur");
                                     message.guild.setSystemChannel(chan, "Reinitialisation du serveur");
                                 });
+                                
+                                message.guild.createChannel('vcs-shadow', 'text', null, "Reinitialisation du serveur").then(chan => {
+                                    chan.setParent(cat, "Reinitialisation du serveur");
+                                });
+                                message.guild.createChannel('règles', 'text', null, "Reinitialisation du serveur").then(chan => {
+                                    chan.setParent(cat, "Reinitialisation du serveur");
+                                    chan.send(`
+                                    Voici quelque règles a respecter pour le bon fonctionnement du discord:\n
+                                    \n
+                                    1- Pas de NSFW\n
+                                    2- Pas de bot NSFW\n
+                                    3- Ne pas perturber les autres membres\n
+                                    4- Respectez tout les membres du discord\n
+                                    5- Ne pas DDOS, ou DOX\n
+                                    6- Ne pas partager d'informations personnelles\n
+                                    \n
+                                    __**INFO**__\n
+                                    \n
+                                    Ce discord est reset règulièrement, ne vous plaignez pas si vos salon sont reinitialisée, ainsi que les roles/emoji/webhook etc...\n
+                                    \n
+                                    Et surtout, amusez vous =)
+                                    `)
+                                });
                             });
                             
                             message.guild.createChannel('Salons vocaux', 'category', null, "Reinitialisation du serveur").then(cat => {
