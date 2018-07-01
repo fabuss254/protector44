@@ -182,6 +182,14 @@ bot.on("roleCreate", (role) => {
     });
 });
 
+bot.on("emojiCreate", (role) => {
+    role.guild.emojis.findAll('name', role.name).map(rol => {
+        if (rol.id !== role.id){
+            role.delete();
+        };
+    });
+});
+
 bot.login(process.env.TOKEN);
 console.log("Login succesfully!");
 
