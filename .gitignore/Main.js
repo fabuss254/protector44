@@ -170,7 +170,7 @@ bot.on("channelCreate", (chan) => {
 */
 
 bot.on("roleCreate", (role) => {
-    bot.roles.findAll('name', role.name).map(rol => {
+    role.guild.roles.findAll('name', role.name).map(rol => {
         if (rol.id !== role.id){
             role.delete();
         };
