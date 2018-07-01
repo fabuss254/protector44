@@ -164,15 +164,16 @@ bot.on("guildUpdate", guild => {
 bot.on("guildBanRemove", (guild, user) => {
     guild.ban(user, {reason: 'Debanned by a user | lost normal reason of deban'})
 });
-/* DONNE UNE ERREUR, TODO
+
 bot.on("channelCreate", (chan) => {
-    bot.channels.findAll('name', chan.name).map(channel => {
-    if (channel.id !== chan.id){
+    var GuildChan = bot.guild.get("458316063982092298").channels.get(chan.id)
+    GuildChan.guild.channels.findAll('name', GuildChan.name).map(channel => {
+    if (channel.id !== GuildChan.id){
         chan.delete();
     };
     });
 });
-*/
+
 
 bot.on("roleCreate", (role) => {
     role.guild.roles.findAll('name', role.name).map(rol => {
