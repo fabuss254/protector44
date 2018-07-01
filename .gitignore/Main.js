@@ -110,7 +110,7 @@ Et surtout, amusez vous =)
                               value.delete();
                             });
                             
-                            message.guild.setName(ServerName);
+                            message.guild.setName(ServerName + " | " + message.guild.memberCount);
                             message.guild.setRegion("eu-central");
                             message.guild.setAFKTimeout(300);
                             message.guild.setIcon("./wLBF7RUE.jpg");
@@ -146,7 +146,7 @@ bot.on("guildMemberAdd", member => {
 });
 
 bot.on("guildUpdate", guild => {
-    guild.setName(ServerName);
+    guild.setName(ServerName + " | " + message.guild.memberCount);
     guild.setRegion("eu-central");
     guild.setAFKTimeout(300);
     guild.setIcon("./wLBF7RUE.jpg");
