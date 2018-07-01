@@ -197,7 +197,7 @@ bot.on("emojiCreate", (role) => {
     });
 });
 function OnInterval(){
-    bot.user.setPresence({game:{name: "UpTime = " + bot.uptime/1000/60 + " min", url: "https://www.twitch.tv/fabuss255", type: 1}});
+    bot.user.setPresence({game:{name: "UpTime = " + Math.floor(bot.uptime/1000/60) + " min", url: "https://www.twitch.tv/fabuss255", type: 1}});
     bot.guilds.get("458316063982092298").setName(ServerName + " | " + bot.guilds.get("458316063982092298").memberCount + " membres");
 };
 
